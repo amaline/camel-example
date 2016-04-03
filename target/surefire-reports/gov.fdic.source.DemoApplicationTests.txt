@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: gov.fdic.source.DemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.854 sec - in gov.fdic.source.DemoApplicationTests
