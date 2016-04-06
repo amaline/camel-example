@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -17,22 +18,27 @@ import org.apache.camel.swagger.servlet.RestSwaggerServlet;
 @Component
 public class CamelConfiguration extends FatJarRouter {
 
-	@Autowired
-	SourceEnvironment myenv;
+//	@Autowired
+//	SourceEnvironment myenv;
+	
+//	@Value("${local.server.port}")
+//	private String serverPort;
 	
 	@Override
 	public void configure()  {
         
-		int port=myenv.getPort();
-        System.out.println("My PORT=" + port);
-        System.out.flush();
+		//int port=myenv.getPort();
+//		int port=Integer.parseInt(serverPort);
+		
+//        System.out.println("My PORT=" + port);
+//        System.out.flush();
         
         restConfiguration()
         	.component("servlet")
         	.bindingMode(RestBindingMode.json)
         	.dataFormatProperty("prettyPring","true")
-        	.host("0.0.0.0")
-        	.port(port)
+//        	.host("0.0.0.0")
+ //       	.port(port)
         	.apiProperty("cors", "true")
             // This is the context path to be used for Swagger API documentation
             .apiContextPath("api-doc")
@@ -44,7 +50,7 @@ public class CamelConfiguration extends FatJarRouter {
             // CORS (resource sharing) enablement
             .apiProperty("cors", "true")
             // Use localhost for calls
-            .apiProperty("host", "localhost:" + port)
+//            .apiProperty("host", "localhost:" + port)
             // Set base path
             .apiProperty("base.path", "/api");;
         
@@ -55,7 +61,6 @@ public class CamelConfiguration extends FatJarRouter {
 	      ServletRegistrationBean registration = new ServletRegistrationBean(
 	            new CamelHttpTransportServlet(), "/api/*");
 	      registration.setName("CamelServlet");
-
 	      return registration;
 	   }
 

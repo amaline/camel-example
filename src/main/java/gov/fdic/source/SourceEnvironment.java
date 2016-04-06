@@ -4,7 +4,7 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 class SourceEnvironment implements EnvironmentAware {
 
 	private int port;
