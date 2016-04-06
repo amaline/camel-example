@@ -1,0 +1,7 @@
+---
+applications:
+- name: source-poc
+  memory: 512M
+  host: source-poc
+  domain: cfapps.dev.fdic.gov
+  buildpack: java_buildpack

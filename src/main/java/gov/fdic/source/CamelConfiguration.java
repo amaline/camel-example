@@ -23,26 +23,30 @@ public class CamelConfiguration extends FatJarRouter {
 	@Override
 	public void configure()  {
         
+		int port=myenv.getPort();
+        System.out.println("My PORT=" + port);
+        System.out.flush();
+        
         restConfiguration()
         	.component("servlet")
         	.bindingMode(RestBindingMode.json)
         	.dataFormatProperty("prettyPring","true")
         	.host("0.0.0.0")
-        	.port(myenv.getPort())
+        	.port(port)
         	.apiProperty("cors", "true")
             // This is the context path to be used for Swagger API documentation
-            .apiContextPath("api-doc").
+            .apiContextPath("api-doc")
             // Properties for Swagger
             // Title of the API
-            apiProperty("api.title", "DCP SOURCE API").
+            .apiProperty("api.title", "DCP SOURCE API")
             // Version of the API
-            apiProperty("api.version", "0.1.0").
+            .apiProperty("api.version", "0.1.0")
             // CORS (resource sharing) enablement
-            apiProperty("cors", "true").
+            .apiProperty("cors", "true")
             // Use localhost for calls
-            apiProperty("host", "localhost:" + myenv.getPort()).
+            .apiProperty("host", "localhost:" + port)
             // Set base path
-            apiProperty("base.path", "/api");;
+            .apiProperty("base.path", "/api");;
         
  		
 	}
