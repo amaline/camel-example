@@ -5,3 +5,6 @@ applications:
   host: source-poc
   domain: cfapps.dev.fdic.gov
   buildpack: java_buildpack
+  env:
+    JBP_CONFIG_JAVA_MAIN: {arguments: "-server.port=\$PORT"}
+    SPRING_APPLICATION_JSON: {"swagger":{"scheme":"https"}}

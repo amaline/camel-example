@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.camel.component.servlet.CamelHttpTransportServlet;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
@@ -18,27 +17,24 @@ import org.apache.camel.swagger.servlet.RestSwaggerServlet;
 @Component
 public class CamelConfiguration extends FatJarRouter {
 
-//	@Autowired
-//	SourceEnvironment myenv;
+	@Value("${server.port:8080}")
+	private String port;
 	
-//	@Value("${local.server.port}")
-//	private String serverPort;
+	@Value("${swagger.scheme:http}")
+	private String scheme;
 	
 	@Override
 	public void configure()  {
         
-		//int port=myenv.getPort();
-//		int port=Integer.parseInt(serverPort);
-		
-//        System.out.println("My PORT=" + port);
-//        System.out.flush();
-        
+		int myport=Integer.parseInt(port);
+       
         restConfiguration()
         	.component("servlet")
         	.bindingMode(RestBindingMode.json)
         	.dataFormatProperty("prettyPring","true")
-//        	.host("0.0.0.0")
- //       	.port(port)
+        	.host("0.0.0.0")
+        	.port(myport)
+        	.scheme(scheme)
         	.apiProperty("cors", "true")
             // This is the context path to be used for Swagger API documentation
             .apiContextPath("api-doc")
@@ -50,7 +46,7 @@ public class CamelConfiguration extends FatJarRouter {
             // CORS (resource sharing) enablement
             .apiProperty("cors", "true")
             // Use localhost for calls
-//            .apiProperty("host", "localhost:" + port)
+            .apiProperty("host", "localhost:" + myport)
             // Set base path
             .apiProperty("base.path", "/api");;
         
@@ -70,6 +66,7 @@ public class CamelConfiguration extends FatJarRouter {
 	            new RestSwaggerServlet(), "/api-docs/*");
 	      registration.setName("SwaggerServlet");
 	      registration.addInitParameter("base.path", "/api");
+	      registration.addInitParameter("schemes", scheme);
 	      return registration;
 	   }
 
