@@ -1,11 +1,12 @@
 ---
 applications:
-- name: source-poc
+- name: microservice
   memory: 512M
-  host: source-poc
+  host: microservice
   domain: cfapps.dev.fdic.gov
   buildpack: java_buildpack
   timeout: 180
+  path: target/microservice-example-0.0.3-SNAPSHOT.jar
   routes:
    - microservice.etbpoc.com
   env:
