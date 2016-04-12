@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>gov.fdic.source</groupId>
-	<artifactId>source-poc</artifactId>
+	<artifactId>microservice-example</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -57,11 +57,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-jackson</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jetty</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
@@ -69,6 +64,11 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-servlet</artifactId>
 			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+			<version>2.16.3</version>
 		</dependency>
 	</dependencies>
 	
