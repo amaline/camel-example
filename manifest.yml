@@ -5,6 +5,9 @@ applications:
   host: source-poc
   domain: cfapps.dev.fdic.gov
   buildpack: java_buildpack
+  timeout: 180
+  routes:
+   - microservice.etbpoc.com
   env:
-    JBP_CONFIG_JAVA_MAIN: {arguments: "-server.port=\$PORT"}
-    SPRING_APPLICATION_JSON: {"swagger":{"scheme":"https"}}
+    JBP_CONFIG_JAVA_MAIN: '{arguments: "-server.port=\$PORT"}'
+    SPRING_APPLICATION_JSON: '{"swagger":{"scheme":"https"}}'
