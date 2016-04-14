@@ -35,7 +35,7 @@ public class SupervisoryActivities extends RouteBuilder {
         	  ;
  		
         from("direct:supervisoryActivity")
-          .transform(constant("If I had it you could have it."));;
+          .transform(constant("If I had it, you could have it!"));;
         
         from("direct:newSupervisoryActivity")
           .to("mock:createActivity");

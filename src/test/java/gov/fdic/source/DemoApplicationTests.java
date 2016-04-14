@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(classes = ReSource.class)
 public class DemoApplicationTests {
 
+	// comment
+	
 	@Test
 	public void contextLoads() {
 	}

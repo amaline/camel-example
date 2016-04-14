@@ -1,0 +1,32 @@
+# the name of Camel
+camel:
+  springboot:
+    name: SampleCamel
+
+greeting: Hello World
+
+# how often to trigger the timer
+timer:
+  period: 10000
+
+#security.user.password=abcpass123
+
+swagger:
+  scheme: http
+
+spring:
+  resources:
+    chain:
+      enabled: true
+      
+security:
+  oauth2:
+    client:
+      clientId: source-microservice
+      clientSecret: jf8yh4u78fyg87djd9uhg09a3
+      accessTokenUri: https://etbuaa.etbpoc.com/oauth/oauth/token
+      userAuthorizationUri: https://etbuaa.etbpoc.com/oauth/authorize
+      scope: uaa.user
+    resource:
+      userInfoUri: https://etbuaa.etbpoc.com/userinfo  
+      tokenInfoUri: https://etbuaa.etbpoc.com/check_token 
