@@ -13,6 +13,7 @@ public class HelloRoute extends RouteBuilder {
         .transform(method("activityBean", "respond"))
         .to("stream:out");
  		
+        
 	}
 
 }

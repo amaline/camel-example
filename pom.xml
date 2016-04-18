@@ -117,8 +117,8 @@
 					<target>https://api.etbpoc.com</target>
 					<org>dit_etb</org>
 					<space>etbdev</space>
-              		<appname>source-poc</appname>
-                    <url>source-poc.cfapps.dev.fdic.gov</url>
+              		<appname>microservice</appname>
+                    <url>microservice.etbpoc.com</url>
                     <memory>512</memory>
                     <timeout>180</timeout>
                     <instances>1</instances>

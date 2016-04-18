@@ -9,24 +9,30 @@ greeting: Hello World
 timer:
   period: 10000
 
-#security.user.password=abcpass123
-
+#swagger configuration
 swagger:
   scheme: http
 
+#webjars configuration
 spring:
   resources:
     chain:
       enabled: true
+
+#security.user.password=abcpass123
       
 security:
   oauth2:
     client:
       clientId: source-microservice
-      clientSecret: jf8yh4u78fyg87djd9uhg09a3
-      accessTokenUri: https://etbuaa.etbpoc.com/oauth/oauth/token
+      clientSecret: CLIENT_SECRET
+      accessTokenUri: https://etbuaa.etbpoc.com/oauth/token
       userAuthorizationUri: https://etbuaa.etbpoc.com/oauth/authorize
+      clientAuthenticationScheme: header
+      authenticationScheme: query
+      tokenName: oauth_token
       scope: uaa.user
+      auto-approve-scopes: '.*'
     resource:
-      userInfoUri: https://etbuaa.etbpoc.com/userinfo  
-      tokenInfoUri: https://etbuaa.etbpoc.com/check_token 
+      userInfoUri: https://etbuaa.etbpoc.com/userinfo
+      tokenInfoUri: https://etbuaa.etbpoc.com/check_token

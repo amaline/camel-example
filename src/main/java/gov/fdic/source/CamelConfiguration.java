@@ -31,7 +31,7 @@ public class CamelConfiguration extends FatJarRouter {
         restConfiguration()
         	.component("servlet")
         	.bindingMode(RestBindingMode.json)
-        	.dataFormatProperty("prettyPring","true")
+        	.dataFormatProperty("prettyPrint","true")
         	.host("0.0.0.0")
         	.port(myport)
         	.scheme(scheme)
